@@ -1,0 +1,16 @@
+services:
+  # Backend (Spring Boot)
+  backend:
+    build: ./  # Relative path from the docker/ folder to the backend Dockerfile
+    container_name: tasktango-backend
+    restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "8080:8080"
+    networks:
+      - tasktango-network
+
+networks:
+  tasktango-network:
+    external: true

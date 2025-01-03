@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:53300/TaskTango?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: treeshavelotsofroots
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cs506.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      cs506:
+        mapper: debug
+        service: info
+        controller: info
+
+cs506:
+  jwt:
+    user-secret-key: taskTango
+    user-ttl: 7200000
+    user-token-name: Authorization

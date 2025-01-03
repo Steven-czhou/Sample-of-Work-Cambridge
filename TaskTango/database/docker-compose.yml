@@ -1,0 +1,23 @@
+services:
+  # MySQL Database
+  database:
+    image: mysql/mysql-server:latest
+    container_name: tasktango-database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: treeshavelotsofroots
+      MYSQL_DATABASE: TaskTango
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - tasktango-dat:/var/lib/mysql
+    ports:
+      - "53300:3306"
+    networks:
+      - tasktango-network
+
+volumes:
+  tasktango-dat:
+
+networks:
+  tasktango-network:
+    external: true

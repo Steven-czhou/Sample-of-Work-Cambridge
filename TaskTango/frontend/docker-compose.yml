@@ -1,0 +1,14 @@
+services:
+  # Frontend (React)
+  frontend:
+    build: ./  # Relative path from the docker/ folder to the frontend Dockerfile
+    restart: always
+    container_name: tasktango-frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - tasktango-network
+
+networks:
+  tasktango-network:
+    external: true

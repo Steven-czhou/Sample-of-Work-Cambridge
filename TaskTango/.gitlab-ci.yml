@@ -1,0 +1,10 @@
+stages:
+  - test
+
+backend-test:
+  image: openjdk:17-jdk-alpine
+  stage: test
+  script:
+    - "cd ./backend/TaskTango/"
+    - "./mvnw test"
+
